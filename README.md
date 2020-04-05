@@ -146,3 +146,130 @@ List Of Kirtan Object
 ```
 
 
+### Api for getting all the smaagam
+This will display all the smaagam objects in the database. It can be used to display the list of smaagam to select from.
+
+```
+https://akjm.herokuapp.com/kirtan/allsmaagam/
+```
+#### Response
+
+```
+List Of Smaagam Object
+
+{
+        "smaagam_id": smaagam_id(Int),
+        "smaagam_name": smaagam_name(String)
+},
+
+```
+
+### Api for searching all the smaagam objects
+This will display all the smaagam objects which match the query in the database. It can be used to display the list of searched smaagam to select from.
+
+```
+https://akjm.herokuapp.com/kirtan/allsmaagam/?search=<search_query>
+```
+#### Response
+
+```
+List Of Smaagam Object
+
+{
+        "smaagam_id": smaagam_id(Int),
+        "smaagam_name": smaagam_name(String)
+},
+
+```
+
+
+### Api for getting kirtan objects with accordance to smaagam_id
+This will display all the kirtan objects with the smaagam_id passed to it.
+
+```
+https://akjm.herokuapp.com/kirtan/getbysmaagam/<int: smaagam_id>
+```
+#### Response
+
+```
+List Of Kirtan Object
+[{
+        "kirtan_id": kirtan_id(int),
+        "smaagam": {
+            "smaagam_id": smaagam_id(int),
+            "smaagam_name": smaagam_name(String)
+        },
+        "artist": {
+            "artist_id": artist_id(int),
+            "artist_name": artist_name(String)
+        },
+        "url": url_to_kirtan_file(URL),
+        "duration": duration_of_kirtan(String)
+},]
+
+```
+
+
+
+### Api for getting all the artist
+This will display all the artist objects in the database. It can be used to display the list of artist to select from.
+
+```
+https://akjm.herokuapp.com/kirtan/allartist/
+```
+#### Response
+
+```
+List Of artist Object
+
+{
+        "artist_id": artist_id(Int),
+        "artist_name": artist_name(String)
+},
+
+```
+
+### Api for searching all the artist objects
+This will display all the artist objects which match the query in the database. It can be used to display the list of searched artist to select from.
+
+```
+https://akjm.herokuapp.com/kirtan/allartist/?search=<search_query>
+```
+#### Response
+
+```
+List Of artist Object
+
+{
+        "artist_id": artist_id(Int),
+        "artist_name": artist_name(String)
+},
+
+```
+
+
+### Api for getting artist objects with accordance to artist_id
+This will display all the kirtan objects with the artist_id passed to it.
+
+```
+https://akjm.herokuapp.com/kirtan/getbyartist/<int: artist_id>
+```
+#### Response
+
+```
+List Of Kirtan Object
+[{
+        "kirtan_id": kirtan_id(int),
+        "smaagam": {
+            "smaagam_id": smaagam_id(int),
+            "smaagam_name": smaagam_name(String)
+        },
+        "artist": {
+            "artist_id": artist_id(int),
+            "artist_name": artist_name(String)
+        },
+        "url": url_to_kirtan_file(URL),
+        "duration": duration_of_kirtan(String)
+},]
+
+```
