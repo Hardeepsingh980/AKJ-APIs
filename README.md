@@ -8,6 +8,13 @@ This is great resource for one who want to create some kind of player for these 
 
 Kirtans are well organised with proper indexing with respect to smaagam as well as the artist or kirtaaniya.
 
+## Apps Using These APIs
+
+#### 1. AKJ Kirtan --> https://github.com/Hardeepsingh980/akj-kirtan
+
+##### I would love to feature your apps here as well. Get in touch.
+
+
 ## Documentation
 
 ### API for all the kirtan files available
