@@ -1,0 +1,1 @@
+web: gunicorn akj_api.wsgi
