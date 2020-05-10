@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'kirtan',
+    'livescraping',
 
     'rest_framework',
 ]
