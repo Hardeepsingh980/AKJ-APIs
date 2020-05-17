@@ -1,6 +1,9 @@
 # AKJ-APIs
 Proper APIs for fetching latest kirtan from akj.org.
 
+## Warning 
+These API are no more working. The databases for these have been deleted.
+
 ## Introduction
 [akj.org](https://akj.org) contains more than 20,000 kirtan files. This APIs have access to all these 20,000 files as well as the new files the admin will add into akj.org.
 
