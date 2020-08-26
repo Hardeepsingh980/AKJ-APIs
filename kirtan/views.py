@@ -71,6 +71,60 @@ class GetKirtanFromArtist(APIView):
         return Response(s.data)
 
 
+def loadAll(request, num):
+
+    res = requests.get(f'https://www.akj.org/keertan.php?sr=1&page={num}')
+    soup = bs(res.text, 'html.parser')
+
+    samagams = soup.select('div.krtn_det')[::-1]
+    samagams_lists = soup.select('div.krtn_listing')[::-1]
+
+    for i in range(len(samagams)):
+        samagam_name = samagams[i].select_one('a').getText()
+        shabads = samagams_lists[i].select('tbody tr')
+        l = []
+        for shabad in shabads:
+            try:
+                title = shabad.select('td')[1].select_one(
+                    'a').getText().replace('NEW', '')
+                dur = shabad.select('td')[0].getText()
+                try:
+                    url = shabad.select('td')[3].select_one(
+                        'a').attrs['href']
+                except:
+                    url = None
+                type_ = shabad.select('td')[2].getText()
+                smaagam = Smaagam.objects.filter(smaagam_name=samagam_name)
+                if len(smaagam) == 0:
+                    smaagam = Smaagam()
+                    smaagam.smaagam_name = samagam_name
+                    smaagam.save()
+                else:
+                    smaagam = smaagam[0]
+
+                artist = Artist.objects.filter(artist_name=title)
+                if len(artist) == 0:
+                    artist = Artist()
+                    artist.artist_name = title
+                    artist.save()
+                else:
+                    artist = artist[0]
+
+                kirtan = Kirtan()
+                kirtan.artist = artist
+                kirtan.smaagam = smaagam
+                kirtan.url = url
+                kirtan.dur = dur
+                kirtan.save()
+            except:
+                pass
+
+    return HttpResponse(request, 'Success')
+
+
+
+
+
 def load(request):
     existingSmaagam = []
 

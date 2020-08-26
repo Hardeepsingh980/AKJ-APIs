@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('load/', views.load),
+    path('loadall/<int:num>', views.loadAll),
     path('latest/', views.Latest.as_view()),
     path('smaagam/', views.SmaagamList.as_view()),
     path('artist/', views.KirtanList.as_view()),
