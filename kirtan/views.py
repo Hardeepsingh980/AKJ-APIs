@@ -114,7 +114,7 @@ def loadAll(request, num):
                 kirtan.artist = artist
                 kirtan.smaagam = smaagam
                 kirtan.url = url
-                kirtan.durations = dur
+                kirtan.duration = dur
                 kirtan.save()
             except:
                 pass
@@ -128,7 +128,7 @@ def loadAll(request, num):
 def load(request):
     existingSmaagam = []
 
-    s = Smaagam.objects.all()[0:600]
+    s = Smaagam.objects.all().order_by('-smaagam_id')[:100]
 
     for i in s:
         existingSmaagam.append(i.smaagam_name)
