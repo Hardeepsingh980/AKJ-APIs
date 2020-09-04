@@ -39,7 +39,7 @@ class KirtanList(generics.ListCreateAPIView):
 
 
 class Latest(generics.ListCreateAPIView):
-    queryset = Kirtan.objects.all().order_by('-kirtan_id')[:50]
+    queryset = Kirtan.objects.all().order_by('-kirtan_id')[:30]
     serializer_class = KirtanSerialiser
 
 
@@ -114,7 +114,7 @@ def loadAll(request, num):
                 kirtan.artist = artist
                 kirtan.smaagam = smaagam
                 kirtan.url = url
-                kirtan.dur = dur
+                kirtan.durations = dur
                 kirtan.save()
             except:
                 pass
@@ -128,7 +128,7 @@ def loadAll(request, num):
 def load(request):
     existingSmaagam = []
 
-    s = Smaagam.objects.all()[0:20]
+    s = Smaagam.objects.all()[0:600]
 
     for i in s:
         existingSmaagam.append(i.smaagam_name)
@@ -177,7 +177,7 @@ def load(request):
                     kirtan.artist = artist
                     kirtan.smaagam = smaagam
                     kirtan.url = url
-                    kirtan.dur = dur
+                    kirtan.duration = dur
                     kirtan.save()
                 except:
                     pass
