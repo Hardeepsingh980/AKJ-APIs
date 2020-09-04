@@ -20,21 +20,21 @@ from bs4 import BeautifulSoup as bs
 class KirtanViewSet(generics.ListCreateAPIView):
     search_fields = ['smaagam__smaagam_name', 'artist__artist_name']
     filter_backends = (filters.SearchFilter,)
-    queryset = Kirtan.objects.all()
+    queryset = Kirtan.objects.all().order_by('-kirtan_id')
     serializer_class = KirtanSerialiser
 
 
 class SmaagamList(generics.ListCreateAPIView):
     search_fields = ['smaagam__smaagam_name']
     filter_backends = (filters.SearchFilter,)
-    queryset = Kirtan.objects.all()
+    queryset = Kirtan.objects.all().order_by('-kirtan_id')
     serializer_class = KirtanSerialiser
 
 
 class KirtanList(generics.ListCreateAPIView):
     search_fields = ['artist__artist_name']
     filter_backends = (filters.SearchFilter,)
-    queryset = Kirtan.objects.all()
+    queryset = Kirtan.objects.all().order_by('-kirtan_id')
     serializer_class = KirtanSerialiser
 
 
