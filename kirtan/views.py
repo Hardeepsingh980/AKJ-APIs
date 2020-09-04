@@ -39,7 +39,7 @@ class KirtanList(generics.ListCreateAPIView):
 
 
 class Latest(generics.ListCreateAPIView):
-    queryset = Kirtan.objects.all().order_by('-kirtan_id')[:30]
+    queryset = Kirtan.objects.all().order_by('-kirtan_id')
     serializer_class = KirtanSerialiser
 
 
