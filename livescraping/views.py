@@ -108,7 +108,6 @@ class GetSmaagam(APIView):
         res = requests.get(f'https://www.akj.org/keertan.php?page={page_no}')
         soup = bs(res.text, 'html.parser')
         samagams = soup.select('div.krtn_det')
-        # samagams_lists = soup.select('div.krtn_listing')
         for i in range(len(samagams)):
             samagam_name = samagams[i].select_one('a').getText()
             page_url = samagams[i].select_one('a').attrs['href']
