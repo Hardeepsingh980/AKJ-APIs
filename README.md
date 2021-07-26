@@ -2,7 +2,7 @@
 Proper APIs for fetching latest kirtan from akj.org.
 
 ## Introduction
-[akj.org](https://akj.org) contains more than 20,000 kirtan files. This APIs have access to all these 20,000 files as well as the new files the admin will add into akj.org.
+[akj.org](https://akj.org) contains more than 25,000 kirtan files. This APIs have access to all these 25,000 files as well as the new files the admin will add into akj.org.
 
 This is great resource for one who want to create some kind of player for these kirtans. 
 
